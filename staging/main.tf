@@ -17,9 +17,9 @@ terraform {
 }
 
 provider "snowflake" {
-  username = "cicduser"
-  account  = "xr96327"
-  role     = "SNOWFLAKE_LEARNING_ROLE"
+  username    = "cicduser"
+  account     = "xr96327"
+  role        = "SNOWFLAKE_LEARNING_ROLE"
   private_key = var.snowflake_private_key
 }
 
