@@ -46,6 +46,7 @@ jobs:
           export TF_VAR_snowflake_user="cicduser"
           export TF_VAR_snowflake_account="xr96327"
           export TF_VAR_snowflake_role="SNOWFLAKE_LEARNING_ROLE"
+          terrafirm  -chdir=./staging plan
       - name: Terraform Apply
         id: apply
         run: terraform -chdir=./staging apply -auto-approve
