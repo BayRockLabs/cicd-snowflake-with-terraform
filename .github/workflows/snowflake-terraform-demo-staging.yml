@@ -24,15 +24,6 @@ jobs:
           role-to-assume: arn:aws:iam::103074025996:role/snowflake-demo-role
           aws-region: us-east-1
 
-      - name: Get OIDC Token
-        id: oidc-token
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const { OIDC } = require('@actions/core');
-            const token = await OIDC.getIDToken('snowflake');
-            core.setOutput('access_token', token);
-
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
       
@@ -58,5 +49,3 @@ jobs:
       - name: Terraform Apply
         id: apply
         run: terraform -chdir=./staging apply -auto-approve
-        env:
-          SNOWFLAKE_OAUTH_TOKEN: ${{ steps.oidc-token.outputs.access_token }}
