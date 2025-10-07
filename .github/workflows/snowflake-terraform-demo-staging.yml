@@ -1,9 +1,11 @@
 name: "STAGING ENV: Snowflake Terraform Demo Workflow"
 
-on: 
+on:
   push:
-    branches: 
+    branches:
       - staging
+  workflow_dispatch:
+   
 
 jobs:
   deploy-terraform-staging:
