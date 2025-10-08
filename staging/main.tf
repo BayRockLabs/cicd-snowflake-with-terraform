@@ -17,9 +17,7 @@ terraform {
 }
 
 provider "snowflake" {
-  username = "cicduser"
-  account  = "xr96327"
-  region   = "us-east-1"
+  role = "SNOWFLAKE_LEARNING_ROLE"
 }
 
 module "snowflake_resources" {

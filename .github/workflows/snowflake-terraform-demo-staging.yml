@@ -6,6 +6,10 @@ on:
       - staging
   workflow_dispatch:
    
+env:
+  SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+  SNOWFLAKE_USERNAME: ${{ secrets.SNOWFLAKE_USERNAME }}
+  SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
 
 jobs:
   deploy-terraform-staging:
@@ -41,20 +45,8 @@ jobs:
 
       - name: Terraform Plan
         id: plan
-        env:
-          SNOWFLAKE_AUTHENTICATOR: oauth
-          SNOWFLAKE_OAUTH_ACCESS_TOKEN: ${{ secrets.SNOWFLAKE_PAT }}
-          SNOWFLAKE_USER: cicduser
-          SNOWFLAKE_ACCOUNT: xr96327
-          SNOWFLAKE_REGION: us-east-1
         run: terraform -chdir=./staging plan
       - name: Terraform Apply
         id: apply
         if: github.event_name == 'push'
-        env:
-          SNOWFLAKE_AUTHENTICATOR: oauth
-          SNOWFLAKE_OAUTH_ACCESS_TOKEN: ${{ secrets.SNOWFLAKE_PAT }}
-          SNOWFLAKE_USER: cicduser
-          SNOWFLAKE_ACCOUNT: xr96327
-          SNOWFLAKE_REGION: us-east-1
         run: terraform -chdir=./staging apply -auto-approve

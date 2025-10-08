@@ -8,8 +8,3 @@ variable "env_name" {
   default = "STAGING"
 }
 
-variable "snowflake_oauth_access_token" {
-  type        = string
-  description = "OAuth access token (e.g., Snowflake PAT) used to access Snowflake"
-  sensitive   = true
-}
