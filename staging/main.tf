@@ -2,7 +2,7 @@ terraform {
   required_providers {
     snowflake = {
       source  = "Snowflake-Labs/snowflake"
-      version = "0.63.0"
+      version = "1.0.5"
     }
   }
 
@@ -17,9 +17,9 @@ terraform {
 }
 
 provider "snowflake" {
-  account            = "xr96327"
-  region             = "us-east-1"
-  oauth_access_token = var.snowflake_oauth_access_token
+  username      = "cicduser"
+  account       = "xr96327"
+  region        = "us-east-1"
 }
 
 module "snowflake_resources" {

@@ -18,8 +18,9 @@ terraform {
 }
 
 provider "snowflake" {
+  username           = "<your_snowflake_username>"
   account            = "<your_snowflake_account_identifier>"
-  role               = "<your_snowflake_role>"
+  region             = "<your_snowflake_region>"
   oauth_access_token = var.snowflake_oauth_access_token
 }
 
