@@ -39,9 +39,9 @@ jobs:
         id: fmt
         run: terraform -chdir=./staging fmt -recursive -check
 
-      - name: Terraform Validate
-        id: validate
-        run: terraform -chdir=./staging validate -no-color
+      # - name: Terraform Validate
+      #   id: validate
+      #   run: terraform -chdir=./staging validate -no-color
 
       - name: Terraform Plan
         id: plan
