@@ -53,5 +53,6 @@ jobs:
           export TF_VAR_snowflake_private_key="${{ secrets.SNOWFLAKE_PRIVATE_KEY }}"
           export TF_VAR_snowflake_user="cicduser"
           export TF_VAR_snowflake_account="xr96327"
+          export TF_VAR_snowflake_region="us-east-1" 
           export TF_VAR_snowflake_role="SNOWFLAKE_LEARNING_ROLE" 
           terraform -chdir=./staging apply -auto-approve
