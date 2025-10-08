@@ -20,6 +20,7 @@ provider "snowflake" {
   username    = "cicduser"
   account     = "xr96327"
   role        = "SNOWFLAKE_LEARNING_ROLE"
+  region      = "us-east-1"
   private_key = var.snowflake_private_key
 }
 
